@@ -1,6 +1,7 @@
 function Ranking(selector) {
   Component.call(this, selector);
   this.numbers = [];
+  this.currentRanking = [];
 };
 
 Ranking.prototype = Object.create(Component.prototype);
@@ -18,7 +19,7 @@ Ranking.prototype.init = function() {
         };
       });
     })
-    .then(() => self.render())
+    .then(() => self.render(this.numbers))
     .catch(function(error) {
       console.error(error);
     });
@@ -29,10 +30,10 @@ Ranking.prototype.rankingUpdate = function (randomNumbersInstance) {
   // TODO
 }
 
-Ranking.prototype.render = function() {
+Ranking.prototype.render = function(arr) {
   const container = this.getDOMElement();
 
-  this.numbers.forEach(number => {
+  arr.forEach(number => {
       const listElement = document.createElement('li');
       listElement.classList.add('list-group-item');
       listElement.innerHTML = number.id;
