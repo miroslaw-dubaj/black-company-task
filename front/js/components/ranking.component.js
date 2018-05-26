@@ -28,7 +28,6 @@ class Ranking extends Component {
   
   rankingUpdate(randomNumbersInstances) {
     randomNumbersInstances.forEach(instance => this.updateCount(instance));
-    console.log(this.numbers, randomNumbersInstances);
     const displayOrder = this.numbers
     let swap = {};
     for (let i = 1; i < displayOrder.length; i++) {
